@@ -15,53 +15,47 @@ import com.google.firebase.auth.FirebaseUser;
 
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public Button but1;
     public Useraccount nutzer1 = new Useraccount();
 
-    private FirebaseAuth fbAuth;
-    private FirebaseAuth.AuthStateListener fbAuthListener;
+    private Button buttonLogout;
 
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fbAuth = FirebaseAuth.getInstance();
+        firebaseAuth = firebaseAuth.getInstance();
 
-        fbAuthListener = new FirebaseAuth.AuthStateListener(){
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth){
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null){
-                    //user signed in
-                    Log.d("LOGGED_IN","onAuthStateChanged:signed__in:" + user.getUid());
-                } else {
-                    Log.d("LOGGED_OUT","onAuthStateChanged:signed_out:");
-                }
-            }
-        };
+        if(firebaseAuth.getCurrentUser() == null){
+            finish();
+            startActivity(new Intent(this,LoginActivity.class));
+        }
 
-
-
-
+        buttonLogout = (Button) findViewById(R.id.buttonLogout);
+        buttonLogout.setOnClickListener(this);
     }
+
 
     @Override
     public void onStart() {
         super.onStart();
-        fbAuth.addAuthStateListener(fbAuthListener);
     }
 
     @Override
     public void onStop(){
         super.onStop();
-        if (fbAuthListener != null) {
-            fbAuth.removeAuthStateListener(fbAuthListener);
+        }
+
+    @Override
+    public void onClick(View v) {
+        if (v == buttonLogout){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this,LoginActivity.class));
         }
     }
-
-
 }

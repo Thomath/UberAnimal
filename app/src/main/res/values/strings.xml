@@ -14,4 +14,22 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!--Strings related to Register Activity -->
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Passwort</string>
+    <string name="textRegister1">Registrieren</string>
+    <string name="textLogin">Bereits registriert? Login!</string>
+    <string name="largeText">Registrierung</string>
+    <string name="registerTextView">Registrierung</string>
+
+    <!--Strings related to Login Activity -->
+    <string name="textViewLogin">Login</string>
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Passwort</string>
+    <string name="loginButton">Login</string>
+    <string name="textRegister2">Kein Konto? Hier registrieren!</string>
+
+
+
 </resources>
