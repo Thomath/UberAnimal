@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Kommunikation">
+        <menu>
+            <item
+                android:id="@+id/nav_messages"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Nachrichten" />
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Profil" />
+        </menu>
+    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_duties"
+            android:icon="@drawable/common_google_signin_btn_icon_light_disabled"
+            android:title="Ihre Einsätze" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Suchen" />
+        <item
+            android:id="@+id/nav_offer"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Anbieten" />
+    </group>
+
+</menu>
